@@ -1,0 +1,3 @@
+<layout id="MainLayout">
+    <label id="roll" x="center" y="center" text="roll" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+</layout>
