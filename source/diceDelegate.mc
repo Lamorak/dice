@@ -8,7 +8,8 @@ class diceDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onMenu() as Boolean {
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new diceMenuDelegate(), WatchUi.SLIDE_UP);
+        var menu = new Rez.Menus.MainMenu();
+        WatchUi.pushView(menu, new diceMenuDelegate(), WatchUi.SLIDE_UP);
         return true;
     }
 
