@@ -1,10 +1,11 @@
+import Toybox.Application.Properties;
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
 class NumberPicker extends WatchUi.Picker {
 
-    public function initialize(label, count) {
+    public function initialize(label, value, count) {
         var title = new WatchUi.Text({
             :text=>label, 
             :color=>Graphics.COLOR_WHITE,
@@ -13,7 +14,12 @@ class NumberPicker extends WatchUi.Picker {
             :locY=>WatchUi.LAYOUT_VALIGN_BOTTOM
             });
         var factory = new NumberFactory(count);
-        Picker.initialize({:title=>title, :pattern=>[factory]});
+        Picker.initialize({
+            :title=>title, 
+            :pattern=>[factory],
+            :defaults=>[value - 1],
+            :confirm=>null,
+        });
     }
 }
 
@@ -40,8 +46,8 @@ class NumberFactory extends WatchUi.PickerFactory {
             :color=>Graphics.COLOR_WHITE,
             :font=>Graphics.FONT_LARGE,
             :locX=>WatchUi.LAYOUT_HALIGN_CENTER, 
-            :locY=>WatchUi.LAYOUT_VALIGN_CENTER
-            });
+            :locY=>WatchUi.LAYOUT_VALIGN_CENTER,
+        });
     }
 }
 
@@ -56,13 +62,13 @@ class NumberPickerDelegate extends WatchUi.PickerDelegate {
     }
 
     public function onCancel() {
-        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
         return true;
     }
 
     public function onAccept(values) {
         saver.save(values[0]);
-        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
         return true;
     }
 
@@ -70,7 +76,13 @@ class NumberPickerDelegate extends WatchUi.PickerDelegate {
 
 class ValueSaver {
 
+    var key;
+
+    public function initialize(key) {
+        me.key = key;
+    }
+
     function save(value) {
-        System.println(value.toString());
+        Properties.setValue(key, value);
     }
 }
