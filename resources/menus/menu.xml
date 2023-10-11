@@ -1,6 +1,0 @@
-<menu2 id="MainMenu" title="Menu">
-    <menu-item id="item_n" label="@Strings.menu_count_dice" subLabel="1">
-    </menu-item>
-    <menu-item id="item_d" label="@Strings.menu_number_sides" subLabel="6">
-    </menu-item>
-</menu2>

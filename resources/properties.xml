@@ -1,6 +1,6 @@
 <resources>
     <properties>
         <property id="diceCount" type="number">2</property>
-        <property id="numberOfSides" type="number">7</property>
+        <property id="numberOfSides" type="number">6</property>
     </properties>
 </resources>

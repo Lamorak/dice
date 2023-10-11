@@ -1,6 +1,6 @@
 <strings>
     <string id="AppName">Dice</string>
 
-    <string id="menu_count_dice">Count of dice</string>
+    <string id="menu_dice_count">Count of dice</string>
     <string id="menu_number_sides">Number of sides</string>
 </strings>
